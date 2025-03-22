@@ -35,3 +35,8 @@ int main() {
 
     return 0;
 }
+
+/* ¿Cómo funciona este código?
+1.- Arreglo original: Tenemos un arreglo desordenado.
+2.- Iteración: Comenzamos desde el segundo elemento y lo insertamos en su posición correcta dentro del subconjunto ordenado. 
+3.- Salida: Después de ejecutar el programa, verás el arreglo ordenado en orden ascendente. */
