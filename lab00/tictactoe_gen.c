@@ -46,20 +46,22 @@ char get_winner(int n, char board[n][n]) {
     }
 
     // Verificar diagonal principal
-    int diag_principal = 1;
+    int diag_principal = true;
     for (int i = 1; i < n; i++) {
         diag_principal *= (board[i][i] == board[0][0] && board[0][0] != winner);
     }
     if (diag_principal) return board[0][0];
 
-    // Verificar diagonal secundaria
-    int diag_secundaria = 1;
-    for (int i = 1; i < n; i++) {
-        diag_secundaria *= (board[i][n - 1 - i] == board[0][n - 1] && board[0][n - 1] != winner);
-    }
-    if (diag_secundaria) return board[0][n - 1];
 
-    return winner; // Si no hay ganador, retorna '-'
+    // Verificar diagonal secundaria
+    int diag_secundaria = true;
+        for (int i = 1; i < n; i++) {
+            int j = n - 1 - i;
+            diag_secundaria *= (board[i][j] == board[0][n - 1] && board[0][n - 1] != winner);
+        }
+        if (diag_secundaria) return board[0][n - 1];
+
+    return winner; // Si no hay ganador, retorna '-' 
 }
 
 bool has_free_cell(int n, char board[n][n]) {
